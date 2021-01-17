@@ -205,7 +205,7 @@ def find_domains_STRUDL(distance_array, threshold=7, k=None):
 
     return best_U_V
   
-"""   
+    
 # run tests
 two_domain_files = ["1cdh.pdb", "2csn.pdb"]
 for protein in two_domain_files:
@@ -228,45 +228,3 @@ for protein in multiple_domain_files:
     index, N = find_multiple_domains_DOMAK(distance_array, real_index_start=0, threshold=7, partion_index=[])
     print(f"The best partition index using DOMAK is: {index} \n and there is {N} domains")
     plot_domains(distance_array, name=protein, threshold=7, partion_index=index)
-"""
-positions = read_pdb("2csn.pdb")
-distance_array = calculate_distance(positions)
-#plot_domains(distance_array, name=protein, threshold=7)
-
-####
-max_angle = 0
-min_angle = 360
-import math
-angles = []
-for protein in ["1cdh.pdb"]:#, "2csn.pdb"]:#,"4GAF_B.pdb", "1HZH_H.pdb"]:
-    positions = read_pdb(protein)
-    path = range(len(positions))
-    for p,q,r in zip(path[0:-2], path[1:-1], path[2:]):
-        #print(p,q,r)
-        p = p-1
-        q = q-1
-        r = r-1
-
-        p1 = positions[p]
-        p2 = positions[q]
-        p3 = positions[r]
-
-        va = [p2[0]-p1[0], p2[1]-p1[1], p2[2]-p1[2]]
-        vb = [p3[0]-p2[0], p3[1]-p2[1], p3[2]-p2[2]]
-
-        norm_a = ( va[0]**2 + va[1]**2 + va[2]**2 )**0.5
-        norm_b = ( vb[0]**2 + vb[1]**2 + vb[2]**2 )**0.5
-
-        angle = math.acos(np.dot(va,vb) / (norm_a*norm_b))
-        if angle > max_angle:
-            max_angle = angle
-        elif angle < min_angle:
-            min_angle = angle
-        angles.append(angle)
-print("mean angle: ",  np.sum(angles) / len(angles))
-fig = plt.figure()
-plt.hist(angles)
-plt.show()
-
-print('angle in range', min_angle, max_angle)
-    
