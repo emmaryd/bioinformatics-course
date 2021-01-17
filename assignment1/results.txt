@@ -1,0 +1,124 @@
+global_alignments.py have been modified according to point 1,2,3,6 and 7
+Percent identity is calculated by dividing the numbers of matching positions with the length of the alignment.
+Result from running global_alignment.py with sequences "ATTA" and "ATTTTA":
+
+    F matrix: global alignment
+          A  T  T  T   T   A
+       0 -2 -4 -6 -8 -10 -12
+    A -2  2  0 -2 -4  -6  -8
+    T -4  0  4  2  0  -2  -4
+    T -6 -2  2  6  4   2   0
+    A -8 -4  0  4  5   3   4
+    trace matrix: global alignment
+               A       T       T       T       T       A
+       0       0       0       0       0       0       0
+    A  0       3       2       2       2       2  [2, 3]
+    T  0       1       3  [2, 3]  [2, 3]  [2, 3]       2
+    T  0       1  [1, 3]       3  [2, 3]  [2, 3]       2
+    A  0  [1, 3]       1       1       3  [2, 3]       3
+    Alignment: 1
+    A  -  -  T  T  A
+    |        |  |  |
+    A  T  T  T  T  A
+    Hamming distance is only defined for sequences of equal length.
+    Hamming distance is: not defined
+    Percent identiy is 0.6666666666666666
+    Alignment: 2
+    A  -  T  -  T  A
+    |     |     |  |
+    A  T  T  T  T  A
+    Hamming distance is only defined for sequences of equal length.
+    Hamming distance is: not defined
+    Percent identiy is 0.6666666666666666
+    Alignment: 3
+    A  T  -  -  T  A
+    |  |        |  |
+    A  T  T  T  T  A
+    Hamming distance is only defined for sequences of equal length.
+    Hamming distance is: not defined
+    Percent identiy is 0.6666666666666666
+    Alignment: 4
+    A  -  T  T  -  A
+    |     |  |     |
+    A  T  T  T  T  A
+    Hamming distance is only defined for sequences of equal length.
+    Hamming distance is: not defined
+    Percent identiy is 0.6666666666666666
+    Alignment: 5
+    A  T  -  T  -  A
+    |  |     |     |
+    A  T  T  T  T  A
+    Hamming distance is only defined for sequences of equal length.
+    Hamming distance is: not defined
+    Percent identiy is 0.6666666666666666
+    Alignment: 6
+    A  T  T  -  -  A
+    |  |  |        |
+    A  T  T  T  T  A
+    Hamming distance is only defined for sequences of equal length.
+    Hamming distance is: not defined
+    Percent identiy is 0.6666666666666666
+
+    There is 6 possible alignments
+
+
+local_alignment.py have been modified according to  point 1, 2, 3 and 4.
+The result from running local_alignment.py with sequences "HDAGAWGHEQ" and "PAWHEAE":
+
+    F matrix: local alignment
+          H  D  A  G  A  W  G  H  E  Q
+       0  0  0  0  0  0  0  0  0  0  0
+    P  0  0  0  0  0  0  0  0  0  0  0
+    A  0  0  0  2  0  2  0  0  0  0  0
+    W  0  0  0  0  1  0  4  2  0  0  0
+    H  0  2  0  0  0  0  2  3  4  2  0
+    E  0  0  1  0  0  0  0  1  2  6  4
+    A  0  0  0  3  1  2  0  0  0  4  5
+    E  0  0  0  1  2  0  1  0  0  2  3
+    trace matrix: local alignment
+          H  D  A  G  A  W  G  H  E  Q
+       0  0  0  0  0  0  0  0  0  0  0
+    P  0  0  0  0  0  0  0  0  0  0  0
+    A  0  0  0  3  0  3  0  0  0  0  0
+    W  0  0  0  0  3  0  3  2  0  0  0
+    H  0  3  0  0  0  0  1  3  3  2  0
+    E  0  0  3  0  0  0  0  3  3  3  2
+    A  0  0  0  3  2  3  0  0  0  1  3
+    E  0  0  0  1  3  0  3  0  0  3  3
+    Alignment:
+    A  W  -  H  E
+    |  |     |  |
+    A  W  G  H  E
+    Percent identiy is 0.8
+    Hamming distance is only defined for sequences of equal length.
+    Hamming distance is: not defined
+
+
+levenshtein.py have been modified according to point 1, 2, 3 and 5.
+Result from running levenshtein.py with sequences "ATACGT" and "ATCGAT":
+
+    F matrix: levenshtein
+           A  T  A  C   G   T
+        0 -2 -4 -6 -8 -10 -12
+    A  -2  2  0 -2 -4  -6  -8
+    T  -4  0  4  2  0  -2  -4
+    C  -6 -2  2  3  4   2   0
+    G  -8 -4  0  1  2   6   4
+    A -10 -6 -2  2  0   4   5
+    T -12 -8 -4  0  1   2   6
+    trace matrix: levenshtein
+          A  T  A  C  G  T
+       0  0  0  0  0  0  0
+    A  0  3  2  3  2  2  2
+    T  0  1  3  2  2  2  3
+    C  0  1  1  3  3  2  2
+    G  0  1  1  3  3  3  2
+    A  0  3  1  3  3  1  3
+    T  0  1  3  1  3  1  3
+    Alignment:
+    A  T  -  C  G  A  T
+    |  |     |  |     |
+    A  T  A  C  G  -  T
+    Hamming distance is: 3
+    Levenshtein_distance is: 2.0
+    Percent identiy is 0.7142857142857143
